@@ -8,7 +8,10 @@ using namespace std;
 typedef struct STUDENT_DATA {
 	string firstName;
 	string lastName;
-
+	string printStudentName() {
+		string fullName = lastName + "," + firstName;
+		return fullName;
+	}
 }STUDENTDATA;
 
 int main() {
@@ -31,6 +34,13 @@ int main() {
 	}
 	StudentDataFile.close();
 
+	#ifdef _DEBUG
+		cout << "DEBUG Running" << endl << endl;
+
+		for (int i = 0; i < studentList.size(); i++)
+			cout << studentList.at(i).printStudentName() << endl;
+	
+	#endif
 
 	return 1;
 }
